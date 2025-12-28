@@ -31,3 +31,22 @@ Deep Learning project for skin cancer detection and prediction using Convolution
 - **Week 2:** Baseline CNN model (in progress)
 - **Week 3:** Model improvements
 - **Week 4:** Final evaluation and documentation
+
+
+## Week 1 Summary
+**Completed:** December 29, 2025
+
+### Achievements:
+- ✅ Downloaded Melanoma dataset (10,605 images from 2023)
+- ✅ Explored class distribution (benign vs malignant)
+- ✅ Created train/validation/test splits (8165/1440/1000)
+- ✅ Visualized sample images from both classes
+- ✅ Confirmed dataset balance and quality
+
+### Files Created:
+- `week1_setup_and_exploration.ipynb` - Data exploration notebook
+
+### Next Steps (Week 2):
+- Build baseline CNN model
+- Implement data augmentation
+- Train and evaluate model
