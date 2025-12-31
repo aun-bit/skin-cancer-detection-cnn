@@ -50,3 +50,26 @@ Deep Learning project for skin cancer detection and prediction using Convolution
 - Build baseline CNN model
 - Implement data augmentation
 - Train and evaluate model
+
+ Week 2 Progress ✅
+**Completed:** January 1, 2025
+
+### Achievements:
+- ✅ Built baseline CNN model (3 convolutional layers)
+- ✅ Trained for 10 epochs with data augmentation
+- ✅ Achieved 90.5% test accuracy
+- ✅ Created confusion matrix and evaluation metrics
+- ✅ Saved trained model
+
+### Results:
+- Training Accuracy: 90.53%
+- Validation Accuracy: 90.76%
+- Test Accuracy: 90.50%
+- Benign Recall: 92%
+- Malignant Precision: 92%
+
+### Files Created:
+- `week2_baseline_model.ipynb` - Model training notebook
+- `skin_cancer_model.h5` - Saved trained model
+
+
