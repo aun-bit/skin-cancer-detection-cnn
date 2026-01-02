@@ -51,7 +51,7 @@ Deep Learning project for skin cancer detection and prediction using Convolution
 - Implement data augmentation
 - Train and evaluate model
 
- Week 2 Progress ✅
+## Week 2 Progress ✅
 **Completed:** January 1, 2025
 
 ### Achievements:
@@ -73,3 +73,35 @@ Deep Learning project for skin cancer detection and prediction using Convolution
 - `skin_cancer_model.h5` - Saved trained model
 
 
+## Week 3 Progress ✅
+**Completed:** January 2, 2026
+
+### Achievements:
+- ✅ Implemented transfer learning with MobileNetV2
+- ✅ Trained model with pre-trained ImageNet weights
+- ✅ Improved accuracy from 90.5% to 91.7%
+- ✅ Created confusion matrix and evaluation
+- ✅ Saved improved model
+
+### Results:
+- Training Accuracy: Higher than baseline
+- Validation Accuracy: 91.40%
+- Test Accuracy: 91.70% (+1.20% improvement)
+- Benign Recall: 96%
+- Malignant Precision: 95%
+
+### Model Comparison:
+| Model | Test Accuracy | Improvement |
+|-------|---------------|-------------|
+| Week 2 - Baseline CNN | 90.50% | - |
+| Week 3 - MobileNetV2 | 91.70% | +1.20% |
+
+### Files Created:
+- `week3_transfer_learning.ipynb` - Transfer learning notebook
+- `skin_cancer_mobilenet.h5` - Trained MobileNetV2 model
+
+### Next Steps (Week 4):
+- Add Grad-CAM visualization
+- Final model evaluation
+- Create project demo
+- Complete documentation
