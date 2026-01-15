@@ -26,6 +26,7 @@ test_data = test_gen.flow_from_directory(
     target_size=(224,224),
     batch_size=32,
     class_mode="binary"
+    shuffle=False # for confusion matrix later
 )
 # Baseline CNN Model
 model = Sequential([
@@ -50,6 +51,46 @@ history = model.fit(
     validation_data=test_data,
     epochs=5
 )
+
+# =========================
+# CONFUSION MATRIX
+# =========================
+
+# True labels
+y_true = test_data.classes
+
+# Predicted probabilities
+y_pred_prob = model.predict(test_data)
+
+# Convert probabilities to class labels (0 or 1)
+y_pred = (y_pred_prob > 0.5).astype(int).ravel()
+
+# Confusion matrix
+cm = confusion_matrix(y_true, y_pred)
+
+print("Confusion Matrix:\n", cm)
+
+# Classification report
+print("\nClassification Report:\n")
+print(classification_report(y_true, y_pred, target_names=test_data.class_indices.keys()))
+
+# Plot confusion matrix
+plt.figure(figsize=(6,5))
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=test_data.class_indices.keys(),
+    yticklabels=test_data.class_indices.keys()
+)
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.title("Confusion Matrix – Skin Cancer Detection")
+plt.tight_layout()
+plt.show()
+
+
 # Save
 model.save("baseline_skin_cancer_model.h5")
 
