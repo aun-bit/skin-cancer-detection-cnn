@@ -19,8 +19,14 @@ TEST_DIR  = os.path.join(BASE_DIR, "test")
 
 assert os.path.exists(TRAIN_DIR), "❌ Train directory missing"
 assert os.path.exists(TEST_DIR), "❌ Test directory missing"
+
+
 # Data generators
-train_gen = ImageDataGenerator(rescale=1./255)
+#train_gen = ImageDataGenerator(rescale=1./255)
+train_gen = ImageDataGenerator(rescale=1./255,rotation_range=20,zoom_range=0.2,width_shift_range=0.2,height_shift_range=0.2,horizontal_flip=True)
+
+
+
 test_gen  = ImageDataGenerator(rescale=1./255)
 
 train_data = train_gen.flow_from_directory(
@@ -55,10 +61,18 @@ model.compile(
 
 model.summary()
 # Train
+# history = model.fit(
+#     train_data,
+#     validation_data=test_data,
+#     epochs=5
+# )
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 history = model.fit(
     train_data,
     validation_data=test_data,
-    epochs=5
+    epochs=20,
+    callbacks=[early_stop]
 )
 
 # =========================
