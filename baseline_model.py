@@ -25,7 +25,7 @@ test_data = test_gen.flow_from_directory(
     TEST_DIR,
     target_size=(224,224),
     batch_size=32,
-    class_mode="binary"
+    class_mode="binary",
     shuffle=False # for confusion matrix later
 )
 # Baseline CNN Model
