@@ -1,0 +1,260 @@
+(base) PS D:\Github\skin-cancer-detection-cnn> C:/Users/Z.Shahid/miniconda3/Scripts/activate
+(base) PS D:\Github\skin-cancer-detection-cnn> conda activate vicenv
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/train.py
+2026-01-15 20:43:20.143294: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-15 20:43:20.143391: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+Found 9605 images belonging to 2 classes.
+Found 1000 images belonging to 2 classes.
+2026-01-15 20:43:23.463630: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-15 20:43:23.463865: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-15 20:43:23.465972: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-15 20:43:23.466041: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-15 20:43:23.466429: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ conv2d (Conv2D)             (None, 222, 222, 32)      896
+
+ batch_normalization (BatchN  (None, 222, 222, 32)     128
+ ormalization)
+
+ max_pooling2d (MaxPooling2D  (None, 111, 111, 32)     0
+ )
+
+ conv2d_1 (Conv2D)           (None, 109, 109, 64)      18496
+
+ batch_normalization_1 (Batc  (None, 109, 109, 64)     256
+ hNormalization)
+
+ max_pooling2d_1 (MaxPooling  (None, 54, 54, 64)       0
+ 2D)
+
+ conv2d_2 (Conv2D)           (None, 52, 52, 128)       73856
+
+ batch_normalization_2 (Batc  (None, 52, 52, 128)      512
+ hNormalization)
+
+ max_pooling2d_2 (MaxPooling  (None, 26, 26, 128)      0
+ 2D)
+
+ flatten (Flatten)           (None, 86528)             0
+ max_pooling2d_2 (MaxPooling  (None, 26, 26, 128)      0
+ 2D)
+
+ flatten (Flatten)           (None, 86528)             0
+ 2D)
+
+ flatten (Flatten)           (None, 86528)             0
+
+ flatten (Flatten)           (None, 86528)             0
+ flatten (Flatten)           (None, 86528)             0
+
+ dense (Dense)               (None, 128)               11075712
+
+ dropout (Dropout)           (None, 128)               0
+
+ dense_1 (Dense)             (None, 1)                 129
+
+=================================================================
+Total params: 11,169,985
+Trainable params: 11,169,537
+Non-trainable params: 448
+_________________________________________________________________
+Epoch 1/20
+301/301 [==============================] - 340s 1s/step - loss: 4.7839 - accuracy: 0.7893 - val_loss: 1.2796 - val_accuracy: 0.6350
+Epoch 2/20
+301/301 [==============================] - 398s 1s/step - loss: 1.2413 - accuracy: 0.8245 - val_loss: 0.4077 - val_accuracy: 0.8700
+Epoch 3/20
+Epoch 9/20
+301/301 [==============================] - 299s 992ms/step - loss: 0.3369 - accuracy: 0.8638 - val_loss: 0.2539 - val_accuracy: 0.8900
+Epoch 10/20
+301/301 [==============================] - 476s 2s/step - loss: 0.3661 - accuracy: 0.8613 - val_loss: 0.2454 - val_accuracy: 0.8970
+Epoch 11/20
+301/301 [==============================] - 558s 2s/step - loss: 0.3334 - accuracy: 0.8630 - val_loss: 0.3360 - val_accuracy: 0.8430
+Epoch 12/20
+301/301 [==============================] - 546s 2s/step - loss: 0.3444 - accuracy: 0.8573 - val_loss: 0.5004 - val_accuracy: 0.8260
+Epoch 13/20
+301/301 [==============================] - 557s 2s/step - loss: 0.3202 - accuracy: 0.8669 - val_loss: 0.2620 - val_accuracy: 0.8740
+loss: 0.2874 - val_accuracy: 0.8700
+✅ Training complete and model saved
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/evaluate.py
+2026-01-16 10:40:11.630751: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:40:11.631000: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+Found 9605 images belonging to 2 classes.
+Found 1000 images belonging to 2 classes.
+2026-01-16 10:40:14.296046: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:40:14.296121: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:40:14.297943: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:40:14.298034: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:40:14.298345: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+32/32 [==============================] - 12s 364ms/step
+
+Evaluation Metrics:
+Precision: 0.8931
+Recall: 0.9020
+F1-score: 0.8975
+ROC-AUC: 0.9637
+
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.90      0.89      0.90       500
+           1       0.89      0.90      0.90       500
+
+    accuracy                           0.90      1000
+   macro avg       0.90      0.90      0.90      1000
+weighted avg       0.90      0.90      0.90      1000
+
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:41:39.039088: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:41:39.039277: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-01-16 10:41:40.895194: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:41:40.895269: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:41:40.897120: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:41:40.897262: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:41:40.897570: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[ WARN:0@2.440] global D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp (239) cv::findDecoder imread_('sample.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 24, in <module>
+    predict_image("sample.jpg")
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 13, in predict_image
+    img = cv2.resize(img, (224,224))
+cv2.error: OpenCV(4.5.5) D:\a\opencv-python\opencv-python\opencv\modules\imgproc\src\resize.cpp:4052: error: (-215:Assertion failed) !ssize.empty() in function 'cv::resize'
+
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:45:35.692154: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:45:35.692387: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-01-16 10:45:37.584181: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:45:37.584305: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:45:37.586234: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:45:37.586380: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:45:37.586716: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+[ WARN:0@2.430] global D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp (239) cv::findDecoder imread_('sample.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 24, in <module>
+    predict_image("sample.jpg")
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 13, in predict_image
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 13, in predict_image
+    img = cv2.resize(img, (224,224))
+    img = cv2.resize(img, (224,224))
+cv2.error: OpenCV(4.5.5) D:\a\opencv-python\opencv-python\opencv\modules\imgproc\src\resize.cpp:4052: error: (-215:Assertion failed) !ssize.empty() in function 'cv::resize'
+cv2.error: OpenCV(4.5.5) D:\a\opencv-python\opencv-python\opencv\modules\imgproc\src\resize.cpp:4052: error: (-215:Assertion failed) !ssize.empty() in function 'cv::resize'
+
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:46:13.781827: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:46:13.782016: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:46:13.781827: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:46:13.782016: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+2026-01-16 10:46:13.781827: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:46:13.782016: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+2026-01-16 10:46:13.782016: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-01-16 10:46:15.700019: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:46:15.700194: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:46:15.702784: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:46:15.703011: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:46:15.703414: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-cr2026-01-16 10:46:15.703011: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:46:15.703414: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-cr2026-01-16 10:46:15.703414: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+itical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 41, in <module>
+    predict_image("data/melanoma_cancer_dataset/test/benign/xxx.jpg")
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 16, in predict_image
+    raise FileNotFoundError(f"❌ Image not found: {image_path}")
+FileNotFoundError: ❌ Image not found: data/melanoma_cancer_dataset/test/benign/xxx.jpg
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> ^C
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:53:54.365270: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:53:54.365482: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+2026-01-16 10:53:56.299564: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:53:56.299774: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:53:56.300380: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 41, in <module>
+    predict_image("data/melanoma_cancer_dataset/test/benign/sample.jpg")
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 16, in predict_image
+    raise FileNotFoundError(f"❌ Image not found: {image_path}")
+FileNotFoundError: ❌ Image not found: data/melanoma_cancer_dataset/test/benign/sample.jpg
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:54:43.484103: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:54:43.484283: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-01-16 10:54:45.405633: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:54:45.406029: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:54:45.408579: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:54:45.408676: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:54:45.409133: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 41, in <module>
+    predict_image("sample.jpg")
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 16, in predict_image
+    raise FileNotFoundError(f"❌ Image not found: {image_path}")
+FileNotFoundError: ❌ Image not found: sample.jpg
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:56:27.780004: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:56:27.780291: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-01-16 10:56:29.627035: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:56:29.627370: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:56:29.629913: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:56:29.630134: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:56:29.630591: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 41, in <module>
+    predict_image("sample.jpg")
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 16, in predict_image
+    raise FileNotFoundError(f"❌ Image not found: {image_path}")
+FileNotFoundError: ❌ Image not found: sample.jpg
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:57:58.133509: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:57:58.133952: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+Traceback (most recent call last):
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 37, in <module>
+    predict_image(IMAGE_PATH)
+  File "d:\Github\skin-cancer-detection-cnn\inference.py", line 16, in predict_image
+    raise FileNotFoundError(f"❌ Image not found: {image_path}")
+FileNotFoundError: ❌ Image not found: d:\Github\skin-cancer-detection-cnn\sample.jpg
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> & C:/Users/Z.Shahid/miniconda3/envs/vicenv/python.exe d:/Github/skin-cancer-detection-cnn/inference.py
+2026-01-16 10:59:48.809566: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2026-01-16 10:59:48.809772: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+C:\Users\Z.Shahid\miniconda3\envs\vicenv\lib\site-packages\h5py\__init__.py:36: UserWarning: h5py is running against HDF5 1.12.2 when it was built against 1.12.1, this may cause problems
+  _warn(("h5py is running against HDF5 {0} when it was built against {1}, "
+2026-01-16 10:59:50.786914: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2026-01-16 10:59:50.787086: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2026-01-16 10:59:50.789616: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: 23-N-ZSHAHID
+2026-01-16 10:59:50.789733: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: 23-N-ZSHAHID
+2026-01-16 10:59:50.790299: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+1/1 [==============================] - 0s 181ms/step
+Prediction score: 1.0000
+Predicted class: Malignant
+(vicenv) PS D:\Github\skin-cancer-detection-cnn> 
+
