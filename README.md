@@ -1,107 +1,109 @@
-# Skin Cancer Detection using Deep Learning (CNN)
-
-## Project Overview
-Deep Learning project for skin cancer detection and prediction using Convolutional Neural Networks (CNN).
-
-## Dataset
-- **Name:** Melanoma Skin Cancer Dataset
-- **Year:** 2023
-- **Size:** 10,605 images
-- **Classes:** Benign vs Malignant
-- **Split:** 
-  - Training: 8,165 images
-  - Validation: 1,440 images
-  - Test: 1,000 images
-
-## Week 1 Progress ✅
-- Environment setup complete
-- Dataset downloaded and explored
-- Data split into train/val/test sets
-- Sample visualizations created
-
-## Technologies
-- Python 3.8+
-- TensorFlow/Keras
-- OpenCV
-- Pandas, NumPy
-- Matplotlib
-
-## Project Timeline
-- **Week 1:** Data preparation ✅
-- **Week 2:** Baseline CNN model (in progress)
-- **Week 3:** Model improvements
-- **Week 4:** Final evaluation and documentation
-
-
-## Week 1 Summary
-**Completed:** December 29, 2025
-
-### Achievements:
-- ✅ Downloaded Melanoma dataset (10,605 images from 2023)
-- ✅ Explored class distribution (benign vs malignant)
-- ✅ Created train/validation/test splits (8165/1440/1000)
-- ✅ Visualized sample images from both classes
-- ✅ Confirmed dataset balance and quality
-
-### Files Created:
-- `week1_setup_and_exploration.ipynb` - Data exploration notebook
-
-### Next Steps (Week 2):
-- Build baseline CNN model
-- Implement data augmentation
-- Train and evaluate model
-
-## Week 2 Progress ✅
-**Completed:** January 1, 2025
-
-### Achievements:
-- ✅ Built baseline CNN model (3 convolutional layers)
-- ✅ Trained for 10 epochs with data augmentation
-- ✅ Achieved 90.5% test accuracy
-- ✅ Created confusion matrix and evaluation metrics
-- ✅ Saved trained model
-
-### Results:
-- Training Accuracy: 90.53%
-- Validation Accuracy: 90.76%
-- Test Accuracy: 90.50%
-- Benign Recall: 92%
-- Malignant Precision: 92%
-
-### Files Created:
-- `week2_baseline_model.ipynb` - Model training notebook
-- `skin_cancer_model.h5` - Saved trained model
-
-
-## Week 3 Progress ✅
-**Completed:** January 2, 2026
-
-### Achievements:
-- ✅ Implemented transfer learning with MobileNetV2
-- ✅ Trained model with pre-trained ImageNet weights
-- ✅ Improved accuracy from 90.5% to 91.7%
-- ✅ Created confusion matrix and evaluation
-- ✅ Saved improved model
-
-### Results:
-- Training Accuracy: Higher than baseline
-- Validation Accuracy: 91.40%
-- Test Accuracy: 91.70% (+1.20% improvement)
-- Benign Recall: 96%
-- Malignant Precision: 95%
-
-### Model Comparison:
-| Model | Test Accuracy | Improvement |
-|-------|---------------|-------------|
-| Week 2 - Baseline CNN | 90.50% | - |
-| Week 3 - MobileNetV2 | 91.70% | +1.20% |
-
-### Files Created:
-- `week3_transfer_learning.ipynb` - Transfer learning notebook
-- `skin_cancer_mobilenet.h5` - Trained MobileNetV2 model
-
-### Next Steps (Week 4):
-- Add Grad-CAM visualization
-- Final model evaluation
-- Create project demo
-- Complete documentation
+🩺 Deep Learning Project for Skin Cancer Detection and Prediction Using CNN
+1.	Project Overview
+Skin cancer, particularly melanoma, is one of the most dangerous forms of cancer if not detected early. This project presents a deep learning–based approach for automatic skin cancer detection using Convolutional Neural Networks (CNNs). The system classifies dermoscopic skin images into benign and malignant categories to assist in early diagnosis.
+The project focuses purely on the machine learning pipeline including data preprocessing, model training, evaluation, and inference, without any frontend or deployment components.
+________________________________________
+2.	 Authors
+•	Aun Mustansar Hussain
+•	M Zohaib Shahid
+Degree: MS Data Science
+University: Superior University, Gold Campus Lahore
+________________________________________
+3.	Objectives
+•	To develop a CNN-based deep learning model for skin cancer detection
+•	To classify skin lesion images into benign and malignant categories
+•	To evaluate model performance using advanced metrics beyond accuracy
+•	To demonstrate model inference on unseen images
+________________________________________
+4.	Dataset Description
+•	Dataset Type: Dermoscopic skin lesion images
+•	Classes:
+o	Benign
+o	Malignant
+•	Total Images: ~10,605
+o	Training images: 9,605
+o	Testing images: 1,000
+•	Directory Structure:
+data/melanoma_cancer_dataset/
+ ├── train/
+ │   ├── benign
+ │   └── malignant
+ └── test/
+     ├── benign
+     └── malignant
+Note: Data imputation is not required as the dataset consists of image files.
+________________________________________
+5.	Model Architecture
+The model is a custom CNN architecture implemented using TensorFlow/Keras, consisting of:
+•	Convolutional layers (Conv2D)
+•	Batch Normalization
+•	Max Pooling
+•	Dropout for regularization
+•	Fully connected (Dense) layers
+•	Sigmoid activation for binary classification
+Total Parameters: ~11.1 million
+________________________________________
+6.	Technologies Used
+•	Programming Language: Python
+•	Deep Learning Framework: TensorFlow / Keras
+•	Libraries: NumPy, OpenCV, scikit-learn, Matplotlib
+•	Environment: Conda (CPU-based execution)
+GPU is optional. The project runs successfully on CPU.
+________________________________________
+7.	Model Training
+•	Images are normalized using rescaling
+•	Data augmentation is applied to improve generalization
+•	Binary cross-entropy loss is used
+•	Adam optimizer is employed
+•	Training history is saved for analysis
+________________________________________
+8.	Model Evaluation
+The model is evaluated using multiple performance metrics to ensure reliability:
+•	Accuracy: 90%
+•	Precision: 0.8931
+•	Recall: 0.9020
+•	F1-score: 0.8975
+•	ROC-AUC: 0.9637
+A confusion matrix and classification report are also generated for detailed analysis.
+________________________________________
+9.	Model Inference
+The trained model can predict the class of a new, unseen skin image.
+Example Output:
+Prediction score: 1.0000
+Predicted class: Malignant
+Inference is implemented in a separate script, ensuring clear separation from training and evaluation.
+________________________________________
+10.	Project Structure
+skin-cancer-detection-cnn/
+ ├── data/
+ ├── utils/
+ │   ├── data_loader.py
+ │   └── metrics.py
+ ├── train.py
+ ├── model.py
+ ├── evaluate.py
+ ├── inference.py
+ ├── transfer_learning.py
+ ├── requirements.txt
+ ├── README.md
+________________________________________
+11.	How to Run the Project
+1. Install dependencies
+pip install -r requirements.txt
+2. Train the model
+python train.py
+3. Evaluate the model
+python evaluate.py
+4. Run inference
+python inference.py
+________________________________________
+12.	Key Highlights
+•	Clear separation of training, evaluation, and inference
+•	Uses advanced evaluation metrics (not accuracy only)
+•	CPU-compatible implementation
+•	Clean and modular code structure
+•	Designed for academic learning and demonstration
+________________________________________
+13.	Conclusion
+This project demonstrates the effective use of deep learning for medical image classification. The CNN model achieves strong performance in detecting malignant skin lesions and can serve as a foundation for further research or real-world clinical decision support systems.
+________________________________________
